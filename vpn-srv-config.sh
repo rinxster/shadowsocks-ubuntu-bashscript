@@ -54,7 +54,7 @@ read -n1 -s -r -p $'Everything is ready to proceed with Shadowsocks installlatio
 echo '########################################'
 #download openvpn installation script and install openvpn on server
 wget https://raw.githubusercontent.com/unixhostpro/shadowsocks-simple-install/master/shadowsocks-simple-install.sh && chmod +x shadowsocks-simple-install.sh
-./shadowsocks-simple-install.sh | grep "URL:" | tee shadowsocks_key.txt
+./shadowsocks-simple-install.sh | grep "URL:" | tee key_shadowsocks.txt
 
 # pause to see intermediate result. Everything is ready to proceed with OpenVPN installlation
 # echo '########################################'
