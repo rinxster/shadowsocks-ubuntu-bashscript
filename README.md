@@ -5,6 +5,6 @@ Also it configures and sets up regular  automatic updates.
 Just copy paste command below and run it on your vanilla Ubuntu server that is just deployed on your cloud to make it Shadowsocks server.
 
 ```
-sudo wget https://raw.githubusercontent.com/rinxster/shadowsocks-ubuntu-bashscript/main/vpn-srv-config.sh -O vpn-srv-config.sh && sudo chmod +x vpn-srv-config.sh && sudo bash vpn-srv-config.sh
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1 && sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1 && sudo wget https://raw.githubusercontent.com/rinxster/shadowsocks-ubuntu-bashscript/main/vpn-srv-config.sh -O vpn-srv-config.sh && sudo chmod +x vpn-srv-config.sh && sudo bash vpn-srv-config.sh
 ```
 Tested and works well on Ubuntu 20.04 LTS.
