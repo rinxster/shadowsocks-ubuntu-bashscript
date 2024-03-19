@@ -4,7 +4,7 @@ yes | apt update && apt upgrade && apt install curl && apt install speedtest-cli
 # pause to see intermediate result.
 read -n1 -s -r -p $'Everything is ready to proceed with unatteneded upgrade setup. Press space to continue...\n' key
 
-yes | sudo apt install unattended-upgrades && sudo apt install update-notifier-common && sudo echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /etc/apt/apt.conf.d/20auto-upgrades && sudo systemctl restart unattended-upgrades 
+yes | sudo apt install unattended-upgrades && sudo apt install update-notifier-common && sudo echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /etc/apt/apt.conf.d/20auto-upgrades && sudo systemctl restart unattended-upgrades && sudo systemctl enable unattended-upgrades  
 #sudo systemctl status unattended-upgrades
 
 # pause to see intermediate result.
