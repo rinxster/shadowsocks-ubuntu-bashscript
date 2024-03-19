@@ -13,12 +13,15 @@ yes | sudo apt install mc && yes | apt install fail2ban && yes | apt install cur
 yes | sudo apt install unattended-upgrades && yes | sudo apt install update-notifier-common
 sudo echo -e "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";\n" > /etc/apt/apt.conf.d/20auto-upgrades
 sudo systemctl restart unattended-upgrades
+sudo systemctl enable unattended-upgrades
+
 #sudo systemctl status unattended-upgrades
 
 #configure fail2ban
 sudo cp /etc/fail2ban/jail.{conf,local}
 sudo sed -i -e 's/bantime  = 10m/bantime  = 1d/g' /etc/fail2ban/jail.local
 sudo systemctl restart fail2ban
+sudo systemctl enable fail2ban
 #sudo systemctl status fail2ban
 
 #configure and start ufw
