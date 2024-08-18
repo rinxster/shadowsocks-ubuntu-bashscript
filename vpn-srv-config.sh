@@ -51,6 +51,12 @@ read -n1 -s -r -p $'Everything is ready to proceed with non root user setup. Pre
 echo '########################################'
 nonroot=0dmin4eg && sudo useradd -m -c "$nonroot" $nonroot -s /bin/bash && usermod -aG sudo $nonroot && sudo passwd $nonroot && sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config && sudo service ssh reload
 
+echo '0dmin4eg ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers > /dev/null
+
+wget -qO uc https://raw.githubusercontent.com/enishant/ubuntu-cleaner/1.0/ubuntu-cleaner.sh && sudo sh uc
+
+( crontab -l; echo "0 0 * * 0 sudo uc" ) | crontab -
+
 # pause to see intermediate result. Everything is ready to proceed with Shadowsocks installlation
 echo '########################################'
 read -n1 -s -r -p $'Everything is ready to proceed with Shadowsocks installlation. Press space to continue...\n' key
