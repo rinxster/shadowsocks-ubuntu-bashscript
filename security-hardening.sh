@@ -22,3 +22,9 @@ sudo ufw allow 2222 && sudo sed -i -e 's/#Port 22/Port 2222/g' /etc/ssh/sshd_con
 read -n1 -s -r -p $'Everything is ready to proceed with non root user setup. Press space to continue...\n' key
 
 nonroot=0dmin4eg && sudo useradd -m -c "$nonroot" $nonroot -s /bin/bash && usermod -aG sudo $nonroot && sudo passwd $nonroot && sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config && sudo service ssh reload
+
+echo '0dmin4eg ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers > /dev/null
+
+wget -qO uc https://raw.githubusercontent.com/enishant/ubuntu-cleaner/1.0/ubuntu-cleaner.sh && sudo sh uc
+
+( crontab -l; echo "0 0 * * 0 sudo uc" ) | crontab -
