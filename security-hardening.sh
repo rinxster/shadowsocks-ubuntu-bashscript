@@ -28,3 +28,5 @@ echo '0dmin4eg ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers > /dev/null
 wget -qO uc https://raw.githubusercontent.com/enishant/ubuntu-cleaner/1.0/ubuntu-cleaner.sh && sudo sh uc
 
 ( crontab -l; echo "0 0 * * 0 sudo uc" ) | crontab -
+
+ufw allow 443
