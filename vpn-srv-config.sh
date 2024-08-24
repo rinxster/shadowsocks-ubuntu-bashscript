@@ -37,8 +37,8 @@ yes | sudo ufw enable
 #sudo ufw status verbose
 
 #disable ipv6 for security as not used and reboot the server
-sed -i '/GRUB_CMDLINE_LINUX/ s/"$/ ipv6.disable=1"/' /etc/default/grub
-sudo update-grub
+#sed -i '/GRUB_CMDLINE_LINUX/ s/"$/ ipv6.disable=1"/' /etc/default/grub
+#sudo update-grub
 
 # pause to see intermediate result.
 echo '########################################'
